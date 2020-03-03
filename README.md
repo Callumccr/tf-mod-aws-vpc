@@ -69,7 +69,7 @@ The module provisions the following resources:
 ## Usage
 
 **IMPORTANT:** The `master` branch is used in `source` just as an example. In your code, do not pin to `master` because there may be breaking changes between releases.
-Instead pin to the release tag (e.g. `?ref=tags/x.y.z`) of one of our [latest releases](https://github.com/%!s(<nil>)/releases).
+Instead pin to the release tag (e.g. `?ref=tags/x.y.z`) of one of our [latest releases](https://github.com/https://github.com/Callumccr/tf-mod-aws-vpc/releases).
 
 
 The below values shown in the usage of this module are purely representative, please replace desired values as required.
@@ -197,7 +197,7 @@ For additional context, refer to some of these links.
 
 **Got a question?** We got answers. 
 
-File a Github [issue](%!s(<nil>)/issues), or message us on [Slack][slack]
+File a Github [issue](https://github.com/Callumccr/tf-mod-aws-vpc/issues), or message us on [Slack][slack]
 
 
 ### Contributors
