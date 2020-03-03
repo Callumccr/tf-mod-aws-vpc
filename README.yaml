@@ -1,0 +1,236 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: tf-mod-aws-vpc
+
+# Canonical Git repo
+github_repo: 
+
+# # Badges to display
+# badges:
+#   - name: "Build Status"
+#     image: ""
+#     url: ""
+
+# Short description of this project
+description: |-
+  Use the `tf-mod-aws-vpc` Terraform module to provision a VPC with Internet Gateway.
+
+# External context to include
+include:
+  - "docs/terraform.md"
+
+# Introduction to this project
+introduction: |-
+  The module provisions the following resources:
+    - An AWS VPC with default security group.
+    - A default AWS Internet Gateway (IGW) associated with the VPC created.
+
+# How to use this module
+usage: |-
+  The below values shown in the usage of this module are purely representative, please replace desired values as required.
+
+  ```hcl
+    module "tf-mod-aws-vpc" {
+      source         = "git::https://github.com:Callumccr/tf-mod-aws-vpc.git?ref=master"
+      enabled        = true
+      aws_account_id = "12345678910"
+      aws_region     = "eu-west-1"
+      cidr_block     = "10.0.0.0/16"
+      tags           = {
+                        "ABC" = "XYZ"
+                        }
+    }
+  ```
+
+# How to get up and running with this project
+quickstart: |-
+
+# Simple and advanced examples of this project
+examples: |-
+  Simple and advanced examples of this project.
+
+  ### Advanced Example 1:
+
+    ```hcl
+    module "tf-mod-aws-vpc" {
+      source         = "git::https://github.com:Callumccr/tf-mod-aws-vpc.git?ref=master"
+      enabled        = true
+      aws_account_id = "12345678910"
+      aws_region     = "eu-west-1"
+      cidr_block     = "10.0.0.0/16"
+      tags           = {
+                        "ABC" = "XYZ"
+                        }
+    }
+
+    module "tf-mod-aws-subnets" {
+      source                  = "git::https://github.com:Callumccr/tf-mod-aws-subnets.git?ref=master"
+      enabled                 = true
+      aws_region              = "eu-west-1"
+      vpc_id                  = module.tf-mod-aws-vpc.vpc_id
+      igw_id                  = module.tf-mod-aws-vpc.igw_id
+      cidr_block              = module.tf-mod-aws-vpc.cidr_block
+      availability_zones      = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+      nat_gateway_enabled     = true
+      nat_instance_enabled    = false
+      map_public_ip_on_launch = true
+      tags                    = {
+                                "ABC" = "XYZ"
+                                }
+    }
+    ```
+
+# Related projects
+related:
+  - name:
+    description:
+    url:
+
+# References
+references:
+  - name: "cloudposse/terraform-aws-vpc"
+    description: "Unmodified upstream provided for this module"
+    url: "https://github.com/cloudposse/terraform-aws-vpc"
+
+# Contributor information
+contributors:
+  - name: "Callum Robertson"
+    github: "callumccr"
+    avatar: https://media-exp1.licdn.com/dms/image/C5603AQHb_3oZMZA5YA/profile-displayphoto-shrink_200_200/0?e=1588809600&v=beta&t=5QQQAlHrm1od5fQNZwdjOtbZWvsGcgNBqFRhZWgnPx4
+    homepage: https://www.linkedin.com/in/callum-robertson-1a55b6110/
+
+# Jira information
+jira:
+  - project:
+    project_url:
+    epic: 
+    epic_url:
+    user_story: 
+    user_story_url:
+
+
+
+
+
+
+
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: tf-mod-aws-vpc
+
+# Canonical GitHub repo
+github_repo: https://git.testplant.com/devops/tf-mod-vpc
+
+# Short description of this project
+description: |-
+  A Core Eggplant Terraform module to provision a VPC with Internet Gateway.
+
+# How to use this project
+usage: |-
+  The below values shown in the usage of this module are purely representative, please replace desired values as required.
+  ```hcl
+  module "tf-mod-vpc" {
+    source         = "git::https:/git.testplant.com/devops/tf-mod-vpc.git?ref=master"
+    enabled        = true
+    aws_account_id = "12345678910"
+    aws_region     = "eu-west-1"
+    namespace      = "hostedplatform"
+    environment    = "prod"
+    name           = "epa"
+    cidr_block     = "10.0.0.0/16"
+  }
+  ```
+include:
+  - "docs/terraform.md"
+
+
+# Introduction to the project
+introduction: |-
+  The module provisions the following resources:
+    - An AWS VPC with default security group.
+    - A default AWS Internet Gateway (IGW) associated with the VPC created.
+
+examples: |-
+  ### Advanced Example 1
+
+  Full example with [tf-mod-aws-vpc](https://git.testplant.com/devops/tf-mod-vpc)
+
+  # Advanced Example 1
+  ```hcl
+  module "tf-mod-vpc" {
+    source         = "git::https:/git.testplant.com/devops/tf-mod-vpc.git?ref=master"
+    enabled        = true
+    aws_account_id = "12345678910"
+    aws_region     = "eu-west-1"
+    cidr_block     = "10.0.0.0/16"
+    tags           = {
+                      "ABC" = "XYZ"
+                      }
+  }
+
+  module "tf-mod-vpc-subnets" {
+    source                  = "git::https:/git.testplant.com/devops/tf-mod-vpc.git//modules/subnets?ref=master"
+    enabled                 = true
+    aws_region              = "eu-west-1"
+    vpc_id                  = module.tf-mod-vpc.vpc_id
+    igw_id                  = module.tf-mod-vpc.igw_id
+    cidr_block              = module.tf-mod-vpc.cidr_block
+    availability_zones      = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+    nat_gateway_enabled     = true
+    nat_instance_enabled    = false
+    map_public_ip_on_launch = true
+    tags                    = {
+                              "ABC" = "XYZ"
+                              }
+  }
+  ```
+
+related:
+  - name: "tf-mod-aws-eks-cluster"
+    description: Core Eggplant Terraform module to create an Elastic Kubernetes (EKS) cluster."
+    url: "https://git.testplant.com/devops/tf-mod-eks-cluster"
+  - name: "tf-mod-aws-eks-workers"
+    description: "Core Eggplant Terraform module to provision an AWS AutoScaling Group, IAM Role, and Security Group for EKS Workers"
+    url: "https://git.testplant.com/devops/tf-mod-eks-workers"
+  - name: "tf-mod-aws-asg"
+    description: "Core Eggplant Terraform module to provision Auto Scaling Group and Launch Template on AWS"
+    url: "https://git.testplant.com/devops/tf-mod-asg"
+  - name: "tf-mod-aws-keypair"
+    description: "Core Eggplant Terraform module which creates EC2 key pair on AWS"
+    url: "https://git.testplant.com/devops/tf-mod-aws-keypair"
+  - name: "tf-mod-aws-vpc"
+    description: "Core Eggplant Terraform module for creating AWS VPC Network Stack"
+    url: "https://git.testplant.com/devops/tf-mod-vpc"
+  - name: "tf-mod-aws-vpc/subnets"
+    description: "Core Eggplant Terraform module for public and private subnets provisioning in existing VPC"
+    url: "https://git.testplant.com/devops/tf-mod-vpc/tree/master/modules/subnets"
+  - name: "tf-mod-label"
+    description: "Core Eggplant Terraform Core Module For Consistent Naming Conventions & Tagging Blocks"
+    url: "https://git.testplant.com/devops/tf-mod-label"
+  - name: "build-harness"
+    description: "The`build-harness` project is to provide a centralised repository to facilitate building documentation, Dockerfiles, Helm charts, and more."
+    url: "https://git.testplant.com/devops/build-harness"
+
+# References
+references:
+  - name: "cloudposse/terraform-aws-vpc"
+    description: "Unmodified upstream provided for this module"
+    url: "https://github.com/cloudposse/terraform-aws-vpc"
+
+jira:
+  - project: "Eggplant Platform Automation"
+    project_url: "https://siteconfidence.atlassian.net/secure/RapidBoard.jspa?rapidView=200&projectKey=EPA"
+    epic: "EPA-31"
+    epic_url: "https://siteconfidence.atlassian.net/browse/EPA-31"
+    user_story: 
+    user_story_url: 
