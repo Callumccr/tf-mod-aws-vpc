@@ -1,5 +1,5 @@
 module "label" {
-  source             = "git::ssh://git@git.testplant.com/devops/tf-mod-label.git?ref=master"
+  source             = "git::https://github.com/Callumccr/tf-mod-label.git?ref=master"
   context            = var.context
   namespace          = var.namespace
   environment        = var.environment
@@ -11,7 +11,7 @@ module "label" {
 }
 
 module "sg_label" {
-  source             = "git::ssh://git@git.testplant.com/devops/tf-mod-label.git?ref=master"
+  source             = "git::https://github.com/Callumccr/tf-mod-label.git?ref=master"
   context            = module.label.context
   namespace          = var.namespace
   environment        = var.environment
@@ -23,7 +23,7 @@ module "sg_label" {
 }
 
 module "igw_label" {
-  source             = "git::ssh://git@git.testplant.com/devops/tf-mod-label.git?ref=master"
+  source             = "git::https://github.com/Callumccr/tf-mod-label.git?ref=master"
   context            = module.label.context
   namespace          = var.namespace
   environment        = var.environment
