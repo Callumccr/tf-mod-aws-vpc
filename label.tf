@@ -14,6 +14,7 @@ module "sg_label" {
   context            = module.label.context
   attributes         = ["sg"]
   additional_tag_map = {} /* Additional attributes (e.g. 1) */
+  label_order        = ["environment", "namespace", "name", "attributes"]
 }
 
 module "igw_label" {
@@ -21,5 +22,6 @@ module "igw_label" {
   context            = module.label.context
   attributes         = ["igw"]
   additional_tag_map = {} /* Additional attributes (e.g. 1) */
+  label_order        = ["environment", "namespace", "name", "attributes"]
 }
 
