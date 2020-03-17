@@ -17,9 +17,9 @@ resource "aws_default_security_group" "default" {
   vpc_id = aws_vpc.default.id
   tags = merge(
     {
-      "Name" = module.sg_label_id
+      "Name" = module.sg_label.id
     },
-    module.sg_label_id.tags
+    module.sg_label.tags
   )
 }
 
@@ -27,7 +27,7 @@ resource "aws_internet_gateway" "default" {
   vpc_id = aws_vpc.default.id
   tags = merge(
     {
-      "Name" = module.igw_label
+      "Name" = module.igw_label.id
     },
     module.igw_label.tags
   )
