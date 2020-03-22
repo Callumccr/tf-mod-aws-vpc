@@ -18,12 +18,12 @@ output "cidr_block" {
 }
 
 output "security_group_id" {
-  value       = aws_security_group.default.id
+  value       = aws_default_security_group.default.id
   description = "The ID of the security group"
 }
 
 output "security_group_arn" {
-  value       = aws_security_group.default.arn
+  value       = aws_default_security_group.default.arn
   description = "The ARN of the security group"
 }
 
