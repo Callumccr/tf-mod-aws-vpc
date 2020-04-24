@@ -77,6 +77,18 @@ variable "enable_classiclink_dns_support" {
   default     = false
 }
 
+variable "allow_all_egress" {
+  type        = bool
+  description = "(Optional) - Whether to allow ALL egress (0.0.0.0/0)"
+  default     = true
+}
+
+variable "allow_all_ingress" {
+  type        = bool
+  description = "(Optional) - Whether to allow ALL egress (0.0.0.0/0)"
+  default     = true
+}
+
 # -----------------------------------------------------------------------------
 # Variables: TF-MOD-LABEL
 # -----------------------------------------------------------------------------

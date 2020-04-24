@@ -21,6 +21,30 @@ resource "aws_default_security_group" "default" {
     },
     module.sg_label.tags
   )
+
+  dynamic "egress" {
+    for_each = var.allow_all_egress == true ? ["0.0.0.0/0"] : null
+    iterator = ingress
+    content {
+      description = "Allow outbound traffic to internal CIDR ranges"
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1"
+      cidr_blocks = [ingress.value]
+    }
+  }
+
+  dynamic "ingress" {
+    for_each = var.allow_all_ingress == true ? ["0.0.0.0/0"] : null
+    iterator = ingress
+    content {
+      description = "Allow inbound traffic to internal CIDR ranges"
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1"
+      cidr_blocks = [ingress.value]
+    }
+  }
 }
 
 resource "aws_internet_gateway" "default" {
