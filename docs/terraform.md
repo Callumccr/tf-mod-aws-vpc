@@ -9,6 +9,8 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:-----:|
 | cidr\_block | CIDR for the VPC | `string` | n/a | yes |
+| allow\_all\_egress | (Optional) - Whether to allow ALL egress (0.0.0.0/0) | `bool` | `true` | no |
+| allow\_all\_ingress | (Optional) - Whether to allow ALL egress (0.0.0.0/0) | `bool` | `true` | no |
 | attributes | (Optional) - Additional attributes (e.g. `1`) | `list(string)` | `[]` | no |
 | aws\_account\_id | The AWS account id of the provider being deployed to (e.g. 12345678). Autoloaded from account.tfvars | `string` | `""` | no |
 | aws\_assume\_role\_arn | (Optional) - ARN of the IAM role when optionally connecting to AWS via assumed role. Autoloaded from account.tfvars. | `string` | `""` | no |
@@ -31,13 +33,15 @@
 
 | Name | Description |
 |------|-------------|
+| cidr\_block | The CIDR block of the VPC |
+| default\_network\_acl\_id | The ID of the network ACL created by default on VPC creation |
+| default\_route\_table\_id | The ID of the route table created by default on VPC creation |
+| default\_security\_group\_id | The ID of the security group created by default on VPC creation |
 | igw\_id | The ID of the Internet Gateway |
+| ipv6\_association\_id | The association ID for the IPv6 CIDR block |
 | ipv6\_cidr\_block | The IPv6 CIDR block |
-| vpc\_cidr\_block | The CIDR block of the VPC |
-| vpc\_default\_network\_acl\_id | The ID of the network ACL created by default on VPC creation |
-| vpc\_default\_route\_table\_id | The ID of the route table created by default on VPC creation |
-| vpc\_default\_security\_group\_id | The ID of the security group created by default on VPC creation |
+| main\_route\_table\_id | The ID of the main route table associated with this VPC |
+| security\_group\_arn | The ARN of the security group |
+| security\_group\_id | The ID of the security group |
 | vpc\_id | The ID of the VPC |
-| vpc\_ipv6\_association\_id | The association ID for the IPv6 CIDR block |
-| vpc\_main\_route\_table\_id | The ID of the main route table associated with this VPC |
 

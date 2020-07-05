@@ -11,16 +11,20 @@ module "label" {
 
 module "sg_label" {
   source             = "git::https://github.com/Callumccr/tf-mod-label.git?ref=master"
-  context            = module.label.context
-  attributes         = ["sg"]
+  namespace          = var.namespace
+  environment        = var.environment
+  name               = var.name
+  attributes         = concat(module.label.attributes, ["sg"])
   additional_tag_map = {} /* Additional attributes (e.g. 1) */
   label_order        = ["environment", "namespace", "name", "attributes"]
 }
 
 module "igw_label" {
   source             = "git::https://github.com/Callumccr/tf-mod-label.git?ref=master"
-  context            = module.label.context
-  attributes         = ["igw"]
+  namespace          = var.namespace
+  environment        = var.environment
+  name               = var.name
+  attributes         = concat(module.label.attributes, ["igw"])
   additional_tag_map = {} /* Additional attributes (e.g. 1) */
   label_order        = ["environment", "namespace", "name", "attributes"]
 }
