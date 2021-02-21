@@ -37,7 +37,7 @@ variable "aws_assume_role_external_id" {
 # -----------------------------------------------------------------------------
 
 variable "enabled" {
-  description = "(Optional). A Switch that decides whether to create the module. Default is true"
+  description = "(Optional) - A Switch that decides whether to create the module. Default is true"
   type        = bool
   default     = true
 }
